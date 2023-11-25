@@ -1,24 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import AppSpinner from "./components/Spinner";
+import { useAppContext } from "./contexts/AppContext";
+import MainPage from "./components/MainPage";
+import MainPageAfter from "./components/MainPageAfter";
+import { useAuthContext } from "./contexts/AuthContext";
 function App() {
+  const { showSpinner, setShowSpinner } = useAppContext();
+  const { currentUser } = useAuthContext();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <AppSpinner
+        show={showSpinner}
+        hideSpinner={() => setShowSpinner(false)}
+      />
+      {currentUser ? <MainPageAfter /> : <MainPage />}
+    </>
   );
 }
 
