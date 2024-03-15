@@ -9,7 +9,6 @@ require("dotenv").config();
 
 ///middlewares for server
 
-// add cors headers to allow cross-origin requests from everywhere we can change it to localhost or ...
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(

@@ -10,7 +10,7 @@ import {
   FcNfcSign,
 } from "react-icons/fc";
 import { useState, useMemo } from "react";
-const elasticsearchUrl = "http://127.0.0.1:9200";
+const elasticsearchUrl = "http://localhost:9200";
 const indexName = "grabbed_text";
 
 // Search query
@@ -27,9 +27,12 @@ function ElasticUse() {
       },
     };
 
+    console.log(keyword);
+
     axios
       .post(`${elasticsearchUrl}/${indexName}/_search`, requestBody)
       .then((response) => {
+        console.log("hits:", response.data.hits.hits);
         setResult([]);
         // Log the search results
         for (const hit of response.data.hits.hits) {
