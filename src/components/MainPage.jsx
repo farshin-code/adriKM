@@ -10,7 +10,7 @@ function MainPage() {
               className="ps-5 ps-lg-0 "
               style={{ fontWeight: "bold", color: "#442190" }}
             >
-              Knowledge Sharing Pipeline!
+              KM Speech Analysis Pipeline!
             </h4>
             <p className="ps-5 ps-lg-0 pt-2">
               Adri-KM is a platform for sharing knowledge.It Grabs Speechs and
